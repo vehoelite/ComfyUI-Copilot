@@ -308,10 +308,10 @@ You must adhere to the following constraints to complete the task:
             log.info(f"-- Processing {len(messages)} messages")
 
             from agents import Agent, Runner, set_trace_processors, set_tracing_disabled, set_default_openai_api
-            from langsmith.wrappers import OpenAIAgentsTracingProcessor
+            # from langsmith.wrappers import OpenAIAgentsTracingProcessor
             set_tracing_disabled(False)
             set_default_openai_api("chat_completions")
-            set_trace_processors([OpenAIAgentsTracingProcessor()])
+            # set_trace_processors([OpenAIAgentsTracingProcessor()])
 
             result = Runner.run_streamed(
                 agent,

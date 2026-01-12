@@ -2,13 +2,13 @@
 Author: ai-business-hql qingli.hql@alibaba-inc.com
 Date: 2025-07-31 19:38:08
 LastEditors: ai-business-hql ai.bussiness.hql@gmail.com
-LastEditTime: 2025-11-20 17:51:33
+LastEditTime: 2026-01-12 11:11:53
 FilePath: /comfyui_copilot/backend/agent_factory.py
 Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 '''
 
 try:
-    from agents import Agent, OpenAIChatCompletionsModel, ModelSettings, Runner, set_trace_processors, set_tracing_disabled, set_default_openai_api
+    from agents import Agent, OpenAIChatCompletionsModel, ModelSettings, Runner, set_tracing_disabled, set_default_openai_api
     if not hasattr(__import__('agents'), 'Agent'):
         raise ImportError
 except Exception:
