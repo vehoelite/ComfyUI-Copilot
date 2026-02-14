@@ -120,9 +120,9 @@ def create_agent(**kwargs) -> Agent:
     )
 
     # Determine model with proper precedence:
-    # 1) Explicit selection from config (model_select from frontend)
+    # 1) Explicit selection from config (model_select or model from frontend)
     # 2) Explicit kwarg 'model' (call-site override)
-    model_from_config = (config or {}).get("model_select")
+    model_from_config = (config or {}).get("model_select") or (config or {}).get("model")
     model_from_kwargs = kwargs.pop("model", None)
 
     model_name = model_from_config or model_from_kwargs or "gemini-2.5-flash"
@@ -133,7 +133,7 @@ def create_agent(**kwargs) -> Agent:
             "groq": "llama-3.3-70b-versatile",
             "anthropic": "claude-sonnet-4-20250514",
             "lmstudio": model_name,  # user must select from loaded models
-            "openai": model_name,
+            "openai": "gpt-4.1-mini",
         }
         model_name = provider_default_models.get(provider, model_name)
 
